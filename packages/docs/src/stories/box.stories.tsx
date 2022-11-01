@@ -7,6 +7,11 @@ export default {
   args: {
     children: <span>Isso fica aqui dentro mesmo mano</span>,
   },
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
 } as Meta<BoxProps>
 
 const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />

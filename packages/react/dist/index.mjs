@@ -107,6 +107,7 @@ var Box = styled("div", {
   backgroundColor: "$gray800",
   border: "1px solid $gray600"
 });
+Box.displayName = "Box";
 
 // src/components/text/index.ts
 var Text = styled("p", {
@@ -136,6 +137,7 @@ var Text = styled("p", {
     fontSize: "md"
   }
 });
+Text.displayName = "Text";
 
 // src/components/heading/index.ts
 var Heading = styled("h2", {
@@ -159,6 +161,7 @@ var Heading = styled("h2", {
     size: "md"
   }
 });
+Heading.displayName = "Heading";
 
 // src/components/avatar/styles.ts
 import * as Avatar from "@radix-ui/react-avatar";
@@ -205,6 +208,7 @@ function Avatar2({ ...props }) {
     ]
   });
 }
+Avatar2.displayName = "Avatar";
 
 // src/components/button/index.tsx
 var Button = styled("button", {
@@ -276,6 +280,7 @@ var Button = styled("button", {
     size: "md"
   }
 });
+Button.displayName = "Button";
 
 // src/components/input/styles.ts
 var InputContainer = styled("div", {
@@ -329,6 +334,7 @@ function TextInput({ prefix, ...props }) {
     ]
   });
 }
+Input.displayName = "Input";
 
 // src/components/textArea/index.ts
 var TextArea = styled("textarea", {
@@ -354,6 +360,7 @@ var TextArea = styled("textarea", {
     color: "$gray400"
   }
 });
+TextArea.displayName = "TextArea";
 
 // src/components/checkBox/styles.ts
 import * as Checkbox from "@radix-ui/react-checkbox";
@@ -419,12 +426,73 @@ function CheckBox(props) {
     })
   });
 }
+CheckBox.displayName = "CheckBox";
+
+// src/components/multiSteps/styles.ts
+var MultiStepsContainer = styled("div", {
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "$2"
+});
+var Label = styled(Text, {
+  color: "$gray100",
+  fontWeight: "bold",
+  defaultVariants: {
+    fontSize: "xs"
+  }
+});
+var Steps = styled("div", {
+  display: "grid",
+  gap: "$2",
+  height: "$1",
+  width: "100%",
+  gridTemplateColumns: "repeat(var(--size-steps), 1fr)"
+});
+var Step = styled("div", {
+  height: "$1",
+  width: "100%",
+  backgroundColor: "$gray600",
+  borderRadius: "$full",
+  variants: {
+    active: {
+      true: {
+        backgroundColor: "$gray100"
+      }
+    }
+  }
+});
+
+// src/components/multiSteps/index.tsx
+import { jsx as jsx4, jsxs as jsxs3 } from "react/jsx-runtime";
+function MultiSteps({ size, currentStep = 1 }) {
+  return /* @__PURE__ */ jsxs3(MultiStepsContainer, {
+    children: [
+      /* @__PURE__ */ jsxs3(Label, {
+        children: [
+          "Passo ",
+          currentStep,
+          " de ",
+          size
+        ]
+      }),
+      /* @__PURE__ */ jsx4(Steps, {
+        css: { "--size-steps": size },
+        children: Array(size).fill(0).map((_, i) => /* @__PURE__ */ jsx4(Step, {
+          active: i + 1 <= currentStep
+        }, i))
+      })
+    ]
+  });
+}
+MultiSteps.displayName = "MultiSteps";
 export {
   Avatar2 as Avatar,
   Box,
   Button,
   CheckBox,
   Heading,
+  MultiSteps,
   Text,
   TextArea,
   TextInput

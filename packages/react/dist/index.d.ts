@@ -833,6 +833,9 @@ declare const AvatarImage: _stitches_react_types_styled_component.StyledComponen
 interface AvatarProps extends ComponentProps<typeof AvatarImage> {
 }
 declare function Avatar({ ...props }: AvatarProps): JSX.Element;
+declare namespace Avatar {
+    var displayName: string;
+}
 
 declare const Button: _stitches_react_types_styled_component.StyledComponent<"button", {
     variant?: "primary" | "secondary" | "tertiary" | undefined;
@@ -1659,7 +1662,19 @@ declare const CheckBoxContainer: _stitches_react_types_styled_component.StyledCo
 }, {}>>;
 
 declare function CheckBox(props: CheckboxProps): JSX.Element;
+declare namespace CheckBox {
+    var displayName: string;
+}
 interface CheckBoxProps extends ComponentProps<typeof CheckBoxContainer> {
 }
 
-export { Avatar, AvatarProps, Box, BoxProps, Button, ButtonProps, CheckBox, CheckBoxProps, Heading, HeadingProps, Text, TextArea, TextAreaProps, TextInput, TextInputProps, TextProps };
+interface MultiStepProps {
+    currentStep?: number;
+    size: number;
+}
+declare function MultiSteps({ size, currentStep }: MultiStepProps): JSX.Element;
+declare namespace MultiSteps {
+    var displayName: string;
+}
+
+export { Avatar, AvatarProps, Box, BoxProps, Button, ButtonProps, CheckBox, CheckBoxProps, Heading, HeadingProps, MultiStepProps, MultiSteps, Text, TextArea, TextAreaProps, TextInput, TextInputProps, TextProps };
