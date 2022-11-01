@@ -7,6 +7,7 @@ export default {
   args: {
     children: 'H1 Heading',
     as: 'h1',
+    size: 'md',
   },
   parameters: {
     docs: {
@@ -14,6 +15,15 @@ export default {
         component:
           'Por padrão do heading é um `h2`, mas podemos alterar essa tag com o propriedade `as`',
       },
+    },
+  },
+  argTypes: {
+    size: {
+      control: 'inline-radio',
+      options: ['sm', 'md', 'lg', '2xl', '3xl', '4xl', '5xl', '6xl'],
+    },
+    as: {
+      control: false,
     },
   },
 } as Meta<HeadingProps>
