@@ -23,6 +23,6 @@ jobs:
 
       - name: Deploy storybook
         working-directory: ./packages/docs
-        run: npm run deploy-storybook -- --ci ---host-token-env-variable=GITHUB_TOKEN
+        run: npm run deploy-storybook -- --ci --branch=main
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
