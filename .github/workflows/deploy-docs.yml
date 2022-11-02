@@ -21,7 +21,7 @@ jobs:
 
       - run: npm run build
         env: 
-          TURBO_TOKEN: l327WTVNA9iSz6JzRi5ZIPAV
+          TURBO_TOKEN: uzaQ16Ozt7XC5e2D4iYEYW1Y
           TURBO_TEAM: gmd-ev
 
       - name: Deploy storybook
